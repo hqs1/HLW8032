@@ -51,7 +51,8 @@ class HLW8032
 		uint32_t PowerData;        //功率数据
 		uint16_t PF;               //脉冲计数器
 		uint32_t PFData = 1;           //脉冲溢出计数器
-		uint32_t VolR1 = 1880000;    //电压电阻1 470K*4  1880K
+		uint8_t PF_reglast = 0;       //上一个的PF寄存器值
+		uint32_t VolR1 = 1880;    //电压电阻1 470K*4  1880K
 		uint32_t VolR2 = 1000;        //电压电阻2  1K
 		float CurrentRF = 0.1;       // 电流采样电阻 0.1 欧姆
 };

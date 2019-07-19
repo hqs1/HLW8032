@@ -83,9 +83,10 @@ void HLW8032::SerialReadLoop()
 		}
 		PF = ((uint32_t)SerialTemps[21] <<8) + SerialTemps[22];   //脉冲数量寄存器       
 		
-		// 确认 PF进位寄存器是否进位，进位则添加1
-		if(bitRead(SerialTemps[20], 7) == 1)
+		// 确认 PF进位寄存器是否取反，取反则添加1
+		if(bitRead(SerialTemps[20], 7) != PF_reglast)
 		{
+			PF_reglast = bitRead(SerialTemps[20], 7);
 			PFData++;
 		}
 	}
